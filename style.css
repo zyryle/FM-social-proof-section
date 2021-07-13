@@ -28,11 +28,15 @@ body {
   box-sizing: border-box;
   font-size: 1.5rem;
   font-family: 'Spartan', sans-serif;
-  padding: 5rem 2rem;
+  padding: 8rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: url(./images/bg-pattern-top-mobile.svg),
+    url(./images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top 0 left 0, bottom 0 right 0;
 }
 
 p {
@@ -44,7 +48,6 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: 100vh; */
 }
 
 /* Top Section */
@@ -65,6 +68,7 @@ p {
 #headline h1 {
   color: var(--primary-very-dark-magenta);
   padding: 0 5rem;
+  font-size: 2.8rem;
 }
 
 #headline p {
@@ -92,6 +96,7 @@ p {
 .icon-star img:not(:last-child) {
   margin-right: 8px;
 }
+
 /* Bottom Section */
 #box-bottom {
   display: flex;
@@ -106,7 +111,6 @@ p {
   padding: 3.2rem 3rem;
   border-radius: 5px;
   margin-top: 1.5rem;
-  background-color: rgb(51, 40, 44);
 }
 
 .user-boxes p {
@@ -116,7 +120,6 @@ p {
 .user {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   margin-bottom: 2rem;
 }
 
@@ -131,32 +134,36 @@ p {
   color: var(--primary-soft-pink);
 }
 
-.attribution {
-  font-size: 1rem;
-  text-align: center;
-  margin-top: 2rem;
-}
+/********** Media Queries **********/
 
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    background-image: url(./images/bg-pattern-top-desktop.svg),
+      url(./images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: top 0 left 0, bottom 0 right 0;
+  }
 
-/* Media Queries */
-@media screen and (min-width: 601px) {
   #container {
-    /* height: 100vh; */
-    width: 80vw;
-    background-color: rgb(233, 233, 233);
+    width: 90vw;
   }
 
   #box-top {
     text-align: left;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    margin-bottom: 2rem;
   }
+
   #headline {
-    width: 50%;
+    width: 100%;
+  }
+
+  #headline h1 {
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 1;
+    /* width: 75%; */
   }
 
   #headline,
@@ -170,33 +177,115 @@ p {
   }
 
   #rating {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
   }
 
   .rating-box {
     display: flex;
+    flex-direction: column;
+    padding: 1.2rem 3rem;
+    width: 30rem;
   }
 
   #box-bottom {
     flex-direction: row;
     justify-content: space-around;
-    background-color: lavenderblush;
+    gap: 20px;
+  }
+  .user-boxes {
+    height: 40rem;
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user img {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    height: 100vh;
+    background-image: url(./images/bg-pattern-top-desktop.svg),
+      url(./images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: top 0 left 0, bottom 0 right 0;
+  }
+
+  #container {
+    width: 80vw;
+  }
+
+  #box-top {
+    text-align: left;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  #headline {
+    width: 65%;
+  }
+
+  #headline h1 {
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 1;
+    width: 75%;
+  }
+
+  #headline,
+  #headline h1 {
+    padding: 0;
+  }
+
+  #headline p {
+    width: auto;
+    padding: 2rem 0 2.5rem 0;
+  }
+
+  #rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .rating-box {
+    display: flex;
+    padding: 1.2rem 0;
+    width: 46rem;
+  }
+
+  .rating-box-1 {
+    margin-right: 10rem;
+  }
+
+  .rating-box-2 {
+    margin-right: 5rem;
+  }
+
+  .icon-star {
+    margin: 0 3rem 0 2rem;
+  }
+
+  #box-bottom {
+    flex-direction: row;
+    justify-content: space-around;
     gap: 20px;
   }
 
-  .user-boxes {
-    /* width: 35rem; */
-  }
-
   .user-box-2 {
-    margin-top: 5rem;
+    margin-bottom: -3rem;
   }
 
   .user-box-3 {
-    margin-top: 10rem;
-  }
-
-  .attribution {
-    font-size: 1.4rem;
+    margin-bottom: -6rem;
   }
 }
